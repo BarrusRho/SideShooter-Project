@@ -25,6 +25,10 @@ public class HealthManager : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+
+        UIManager.instance.healthBar.maxValue = maxHealth;
+
+        UIManager.instance.healthBar.value = currentHealth;
     }
 
     // Update is called once per frame
@@ -47,6 +51,8 @@ public class HealthManager : MonoBehaviour
         {
             currentHealth = currentHealth - 1;
 
+            UIManager.instance.healthBar.value = currentHealth;
+
             if (currentHealth <= 0)
             {
                 Instantiate(playerExplosion, transform.position, transform.rotation);
@@ -64,6 +70,8 @@ public class HealthManager : MonoBehaviour
     {
         gameObject.SetActive(true);
         currentHealth = maxHealth;
+
+        UIManager.instance.healthBar.value = currentHealth;
 
         invincibilityCounter = invincibleLength;
 

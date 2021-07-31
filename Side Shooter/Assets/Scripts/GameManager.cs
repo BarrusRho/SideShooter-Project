@@ -8,16 +8,28 @@ public class GameManager : MonoBehaviour
 
     public int currentLives;
 
-    public float respawnTime = 2f;
+    public float respawnTime = 2f;       
 
     private void Awake()
     {
         instance = this;
     }
 
+    void Start()
+    {
+        UIManager.instance.livesText.text = "x " + currentLives;
+    }
+
+    void Update()
+    {
+        
+    }
+
     public void DestroyPlayer()
     {
         currentLives = currentLives - 1;
+
+        UIManager.instance.livesText.text = "x " + currentLives;
 
         if (currentLives > 0)
         {
@@ -25,7 +37,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //game over
+            UIManager.instance.userInterface.SetActive(true);
+
+            WaveManager.instance.canSpawnWaves = false;
         }
     }
 
