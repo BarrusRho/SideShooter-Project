@@ -23,6 +23,8 @@ public class EnemyController : MonoBehaviour
     public int currentHealth;
     public GameObject enemyExplosion;
 
+    public int scoreValue = 100;
+
     void Start()
     {
         shotCounter = timeBetweenShots;
@@ -68,6 +70,8 @@ public class EnemyController : MonoBehaviour
 
         if (currentHealth <= 0) 
         {
+            GameManager.instance.AddScore(scoreValue);
+
             Instantiate(enemyExplosion, transform.position, transform.rotation);
             Destroy(this.gameObject, 0f);
         }

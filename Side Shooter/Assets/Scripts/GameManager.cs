@@ -8,7 +8,11 @@ public class GameManager : MonoBehaviour
 
     public int currentLives;
 
-    public float respawnTime = 2f;       
+    public float respawnTime = 2f;
+
+    public int currentScore;
+
+    private int highScore;
 
     private void Awake()
     {
@@ -18,11 +22,17 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UIManager.instance.livesText.text = "x " + currentLives;
+
+        UIManager.instance.scoreText.text = "Score: " + currentScore;
+
+        highScore = PlayerPrefs.GetInt("HighScore");
+
+        UIManager.instance.highScoreText.text = "High Score: " + highScore;
     }
 
     void Update()
     {
-        
+
     }
 
     public void DestroyPlayer()
@@ -40,6 +50,22 @@ public class GameManager : MonoBehaviour
             UIManager.instance.userInterface.SetActive(true);
 
             WaveManager.instance.canSpawnWaves = false;
+        }
+    }
+
+    public void AddScore(int scoreToAdd)
+    {
+        currentScore += scoreToAdd;
+
+        UIManager.instance.scoreText.text = "Score: " + currentScore;
+
+        if (currentScore > highScore)
+        {
+            highScore = currentScore;
+
+            UIManager.instance.highScoreText.text = "High Score: " + highScore;
+
+            PlayerPrefs.SetInt("HighScore", highScore);
         }
     }
 

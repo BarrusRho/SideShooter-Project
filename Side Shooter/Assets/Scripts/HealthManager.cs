@@ -16,6 +16,10 @@ public class HealthManager : MonoBehaviour
 
     public SpriteRenderer sR;
 
+    public int shieldPower;
+    public int shieldMaxPower;
+    public GameObject shield;
+
     public void Awake()
     {
         instance = this;
@@ -29,6 +33,10 @@ public class HealthManager : MonoBehaviour
         UIManager.instance.healthBar.maxValue = maxHealth;
 
         UIManager.instance.healthBar.value = currentHealth;
+
+        UIManager.instance.shieldBar.maxValue = shieldMaxPower;
+
+        UIManager.instance.shieldBar.value = shieldPower;
     }
 
     // Update is called once per frame
@@ -47,23 +55,41 @@ public class HealthManager : MonoBehaviour
 
     public void DamagerPlayer()
     {
-        if (invincibilityCounter <= 0) 
+
+        if (shield.activeInHierarchy) 
         {
-            currentHealth = currentHealth - 1;
+            shieldPower = shieldPower - 1;
 
-            UIManager.instance.healthBar.value = currentHealth;
-
-            if (currentHealth <= 0)
+            if (shieldPower <= 0) 
             {
-                Instantiate(playerExplosion, transform.position, transform.rotation);
+                shield.SetActive(false);
+            }
 
-                gameObject.SetActive(false);
+            UIManager.instance.shieldBar.value = shieldPower;
 
-                GameManager.instance.DestroyPlayer();
+        }
+        else 
+        {
+            if (invincibilityCounter <= 0)
+            {
+                currentHealth = currentHealth - 1;
 
-                WaveManager.instance.canSpawnWaves = false;
+                UIManager.instance.healthBar.value = currentHealth;
+
+                if (currentHealth <= 0)
+                {
+                    Instantiate(playerExplosion, transform.position, transform.rotation);
+
+                    gameObject.SetActive(false);
+
+                    GameManager.instance.DestroyPlayer();
+
+                    WaveManager.instance.canSpawnWaves = false;
+                }
             }
         }
+
+        
     }
 
     public void Respawn()
@@ -77,5 +103,14 @@ public class HealthManager : MonoBehaviour
 
         sR.color = new Color(sR.color.r, sR.color.g, sR.color.b, 0.5f);
 
+    }
+
+    public void ActivateShield() 
+    {
+        shield.SetActive(true);
+
+        shieldPower = shieldMaxPower;
+
+        UIManager.instance.shieldBar.value = shieldPower;
     }
 }

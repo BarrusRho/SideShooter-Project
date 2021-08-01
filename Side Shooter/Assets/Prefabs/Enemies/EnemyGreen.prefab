@@ -124,17 +124,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1525f30539a2c6043a457fa2c4f426ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
-  startDirection: {x: -1, y: 0.25}
+  movementSpeed: 6
+  startDirection: {x: -1, y: 0}
   shouldChangeDirection: 1
   changeDirectionXPoint: 0
-  changedDirection: {x: -0.75, y: -0.5}
+  changedDirection: {x: 1, y: 0.75}
   enemyShot: {fileID: 2051406079303803961, guid: 163e0f871fa2a214c8a82912e717792b, type: 3}
   firePoint: {fileID: 5120470554544208595}
   timeBetweenShots: 1
   canShoot: 1
   currentHealth: 3
   enemyExplosion: {fileID: 1853201976855178486, guid: d1f0366d3b47bd24a9f63ccbfa339a21, type: 3}
+  scoreValue: 300
 --- !u!114 &2838994192856514930
 MonoBehaviour:
   m_ObjectHideFlags: 0
