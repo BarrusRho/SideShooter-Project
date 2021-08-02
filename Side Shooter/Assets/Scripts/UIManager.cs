@@ -8,13 +8,15 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    public GameObject userInterface;
+    public GameObject gameOverPanel;
 
     public Text livesText;
 
     public Slider healthBar, shieldBar;
 
     public Text scoreText, highScoreText;
+
+    public GameObject levelEnd_Panel;
 
     private void Awake()
     {

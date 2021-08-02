@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     private int highScore;
 
+    public bool levelEnd;
+
     private void Awake()
     {
         instance = this;
@@ -32,7 +34,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        if(levelEnd == true) 
+        {
+            PlayerController.instance.transform.position += new Vector3((PlayerController.instance.boostSpeed * Time.deltaTime), 0f, 0f);
+        }
     }
 
     public void DestroyPlayer()
@@ -47,9 +52,11 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            UIManager.instance.userInterface.SetActive(true);
+            UIManager.instance.gameOverPanel.SetActive(true);
 
             WaveManager.instance.canSpawnWaves = false;
+
+            MusicController.instance.PlayGameOverAudio();
         }
     }
 
@@ -76,6 +83,19 @@ public class GameManager : MonoBehaviour
         HealthManager.instance.Respawn();
 
         WaveManager.instance.ContinueSpawning();
+    }
+
+    public IEnumerator EndLevelCo() 
+    {
+        UIManager.instance.levelEnd_Panel.SetActive(true);
+
+        PlayerController.instance.stopMovement = true;
+
+        levelEnd = true;
+
+        MusicController.instance.PlayVictoryAudio();
+
+        yield return new WaitForSeconds(0.5f);
     }
 
 }
