@@ -2063,6 +2063,10 @@ MonoBehaviour:
   shotPoint: {fileID: 1052887886}
   shot: {fileID: 2680450845720881821, guid: 31ca6c95d63b09a46a3710407d267d38, type: 3}
   timeBetweenShots: 0.2
+  boostSpeed: 8
+  boostDuration: 5
+  doubleShotActive: 0
+  doubleShotOffset: 0.2
 --- !u!58 &1256479734
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3680,60 +3684,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &4052711138661158227
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4052711138410129685, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_Name
-      value: PowerUp_Shield
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052711138410129689, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052711138410129689, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052711138410129689, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052711138410129689, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052711138410129689, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052711138410129689, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052711138410129689, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052711138410129689, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052711138410129689, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052711138410129689, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052711138410129689, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     public float moveSpeed;
     public Rigidbody2D playerRigidbody;
 
@@ -15,10 +17,23 @@ public class PlayerController : MonoBehaviour
     public float timeBetweenShots = 0.2f;
     private float shotCounter;
 
+    private float normalSpeed;
+    public float boostSpeed;
+    public float boostDuration;
+    private float boostCounter;
+
+    public bool doubleShotActive;
+    public float doubleShotOffset;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-
+        normalSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -30,7 +45,16 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(shot, shotPoint.position, shotPoint.rotation);
+            if (!doubleShotActive) 
+            {
+                Instantiate(shot, shotPoint.position, shotPoint.rotation);
+            }
+            else 
+            {
+                Instantiate(shot, shotPoint.position + new Vector3(0f, doubleShotOffset, 0f), shotPoint.rotation);
+
+                Instantiate(shot, shotPoint.position - new Vector3(0f, doubleShotOffset, 0f), shotPoint.rotation);
+            }
 
             shotCounter = timeBetweenShots;
         }
@@ -41,10 +65,35 @@ public class PlayerController : MonoBehaviour
 
             if (shotCounter <= 0f)
             {
-                Instantiate(shot, shotPoint.position, shotPoint.rotation);
+                if (!doubleShotActive)
+                {
+                    Instantiate(shot, shotPoint.position, shotPoint.rotation);
+                }
+                else
+                {
+                    Instantiate(shot, shotPoint.position + new Vector3(0f, doubleShotOffset, 0f), shotPoint.rotation);
+
+                    Instantiate(shot, shotPoint.position - new Vector3(0f, doubleShotOffset, 0f), shotPoint.rotation);
+                }
 
                 shotCounter = timeBetweenShots;
             }
         }
+
+        if (boostCounter > 0)
+        {
+            boostCounter -= Time.deltaTime;
+
+            if (boostCounter <= 0) 
+            {
+                moveSpeed = normalSpeed;
+            }
+        }
+    }
+
+    public void ActivateSpeedBoost() 
+    {
+        boostCounter = boostDuration;
+        moveSpeed = boostSpeed;
     }
 }

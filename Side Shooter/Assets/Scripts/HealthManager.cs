@@ -86,10 +86,10 @@ public class HealthManager : MonoBehaviour
 
                     WaveManager.instance.canSpawnWaves = false;
                 }
-            }
-        }
 
-        
+                PlayerController.instance.doubleShotActive = false;
+            }
+        }        
     }
 
     public void Respawn()

@@ -166,6 +166,11 @@ MonoBehaviour:
   currentHealth: 1
   enemyExplosion: {fileID: 1853201976855178486, guid: d1f0366d3b47bd24a9f63ccbfa339a21, type: 3}
   scoreValue: 200
+  powerUps:
+  - {fileID: 2846230602486567154, guid: 50c2bc689eb5c8343a014b9e55892240, type: 3}
+  - {fileID: 4052711138410129685, guid: 2edba79b37b7bfb4a816f12764d93aeb, type: 3}
+  - {fileID: 3407377552046869658, guid: 3cd81fb54db11d44cbe9be850b4d953e, type: 3}
+  dropRate: 33
 --- !u!114 &6130373258000609876
 MonoBehaviour:
   m_ObjectHideFlags: 0

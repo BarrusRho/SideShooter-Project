@@ -6,6 +6,10 @@ public class PowerUp : MonoBehaviour
 {
     public bool isShield;
 
+    public bool isSpeedBoost;
+
+    public bool isDoubleShot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +24,24 @@ public class PowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player") 
+        if (other.tag == "Player")
         {
             Destroy(this.gameObject, 0f);
 
-            if (isShield == true) 
+            if (isShield == true)
             {
                 HealthManager.instance.ActivateShield();
             }
+        }
+
+        if (isSpeedBoost == true) 
+        {
+            PlayerController.instance.ActivateSpeedBoost();
+        }
+
+        if (isDoubleShot == true) 
+        {
+            PlayerController.instance.doubleShotActive = true;
         }
     }
 }
