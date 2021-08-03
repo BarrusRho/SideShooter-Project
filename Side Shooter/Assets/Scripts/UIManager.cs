@@ -16,7 +16,13 @@ public class UIManager : MonoBehaviour
 
     public Text scoreText, highScoreText;
 
-    public GameObject levelEnd_Panel;
+    public GameObject levelEndPanel;
+
+    public Text endLevelScore, endCurrentScore;
+
+    public GameObject highScoreNotice;
+
+    public GameObject pauseMenuPanel;
 
     private void Awake()
     {
@@ -38,10 +44,17 @@ public class UIManager : MonoBehaviour
     public void Restart() 
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        Time.timeScale = 1;
     }
 
     public void QuitToMainMenu() 
     {
     
+    }
+
+    public void Resume() 
+    {
+        GameManager.instance.PauseUnpause();
     }
 }
