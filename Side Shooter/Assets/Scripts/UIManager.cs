@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject pauseMenuPanel;
 
+    public string mainMenu = "MainMenu";
+
     private void Awake()
     {
         instance = this;
@@ -50,7 +52,9 @@ public class UIManager : MonoBehaviour
 
     public void QuitToMainMenu() 
     {
-    
+        SceneManager.LoadScene(mainMenu);
+
+        Time.timeScale = 1f;
     }
 
     public void Resume() 

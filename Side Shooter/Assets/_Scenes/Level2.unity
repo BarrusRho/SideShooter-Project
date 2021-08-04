@@ -245,10 +245,12 @@ MonoBehaviour:
   shieldBar: {fileID: 1461428083}
   scoreText: {fileID: 539322715}
   highScoreText: {fileID: 451252369}
-  levelEnd_Panel: {fileID: 633182414}
+  levelEndPanel: {fileID: 633182414}
   endLevelScore: {fileID: 500422924}
   endCurrentScore: {fileID: 1430471977}
   highScoreNotice: {fileID: 1140209882}
+  pauseMenuPanel: {fileID: 0}
+  mainMenu: MainMenu
 --- !u!1 &1243657
 GameObject:
   m_ObjectHideFlags: 0
