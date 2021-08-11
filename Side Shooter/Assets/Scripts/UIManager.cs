@@ -26,6 +26,10 @@ public class UIManager : MonoBehaviour
 
     public string mainMenu = "MainMenu";
 
+    public Slider bossHealthSlider;
+
+    public Text bossName;
+
     private void Awake()
     {
         instance = this;
