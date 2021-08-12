@@ -1,2 +1,2 @@
 # SideShooter
-A simple side-scrolling shoot 'em up game.
+A simple, side-scrolling shoot 'em up game.
