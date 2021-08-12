@@ -31,11 +31,18 @@ public class PlayerShot : MonoBehaviour
             Instantiate(objectExplosion, other.transform.position, other.transform.rotation);
 
             Destroy(other.gameObject, 0f);
+
+            GameManager.instance.AddScore(50);
         }
 
         if(other.tag == "Enemy") 
         {
             other.GetComponent<EnemyController>().DamageEnemy();
+        }
+
+        if(other.tag == "Boss") 
+        {
+            BossManager.instance.DamageBoss();
         }
 
         Destroy(this.gameObject, 0f);
