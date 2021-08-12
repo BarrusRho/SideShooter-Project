@@ -251,6 +251,8 @@ MonoBehaviour:
   highScoreNotice: {fileID: 1140209882}
   pauseMenuPanel: {fileID: 0}
   mainMenu: MainMenu
+  bossHealthSlider: {fileID: 0}
+  bossName: {fileID: 0}
 --- !u!1 &1243657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,7 +1688,7 @@ MonoBehaviour:
   currentScore: 0
   levelEnd: 0
   waitForLevelEnd: 5
-  nextLevel: 
+  nextLevel: Boss1
 --- !u!1 &633182414
 GameObject:
   m_ObjectHideFlags: 0
