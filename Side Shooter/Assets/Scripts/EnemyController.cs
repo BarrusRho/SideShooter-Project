@@ -86,6 +86,9 @@ public class EnemyController : MonoBehaviour
             }            
 
             Instantiate(enemyExplosion, transform.position, transform.rotation);
+
+            MusicController.instance.enemyExplosionAudio.Play();
+
             Destroy(this.gameObject, 0f);
         }
 

@@ -80,6 +80,8 @@ public class HealthManager : MonoBehaviour
                 {
                     Instantiate(playerExplosion, transform.position, transform.rotation);
 
+                    MusicController.instance.playerExplosionAudio.Play();                    
+
                     gameObject.SetActive(false);
 
                     GameManager.instance.DestroyPlayer();

@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
 
             MusicController.instance.PlayGameOverAudio();
 
+            MusicController.instance.playerDeathAudio.Play();
+
             PlayerPrefs.SetInt("HighScore", highScore);
 
             canPause = false;
