@@ -30,6 +30,10 @@ public class PlayerShot : MonoBehaviour
         {
             Instantiate(objectExplosion, other.transform.position, other.transform.rotation);
 
+            MusicController.instance.enemyExplosionAudio.Play();
+
+            MusicController.instance.shotImpactAudio.Play();
+
             Destroy(other.gameObject, 0f);
 
             GameManager.instance.AddScore(50);
@@ -38,11 +42,15 @@ public class PlayerShot : MonoBehaviour
         if(other.tag == "Enemy") 
         {
             other.GetComponent<EnemyController>().DamageEnemy();
+
+            MusicController.instance.shotImpactAudio.Play();
         }
 
         if(other.tag == "Boss") 
         {
             BossManager.instance.DamageBoss();
+
+            MusicController.instance.shotImpactAudio.Play();
         }
 
         Destroy(this.gameObject, 0f);

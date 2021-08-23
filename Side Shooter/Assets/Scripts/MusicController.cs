@@ -8,6 +8,8 @@ public class MusicController : MonoBehaviour
 
     public AudioSource levelAudio, bossAudio, victoryAudio, gameOverAudio;
 
+    public AudioSource playerExplosionAudio, enemyExplosionAudio, playerDeathAudio, powerUpAudio, shotImpactAudio;
+
     private void Awake()
     {
         instance = this;

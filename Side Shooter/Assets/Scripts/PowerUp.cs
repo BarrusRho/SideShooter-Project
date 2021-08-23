@@ -26,11 +26,13 @@ public class PowerUp : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            MusicController.instance.powerUpAudio.Play();
+
             Destroy(this.gameObject, 0f);
 
             if (isShield == true)
             {
-                HealthManager.instance.ActivateShield();
+                HealthManager.instance.ActivateShield();               
             }
         }
 

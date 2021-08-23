@@ -72,6 +72,8 @@ public class BossManager : MonoBehaviour
 
                 Instantiate(phases[currentPhase].addAtPhaseEnd, phases[currentPhase].newSpawnPoint.position, phases[currentPhase].newSpawnPoint.rotation);
 
+                MusicController.instance.enemyExplosionAudio.Play();
+
                 currentPhase++;
 
                 bossAnimator.SetInteger("Phase", currentPhase + 1);
@@ -118,6 +120,8 @@ public class BossManager : MonoBehaviour
 
         Instantiate(bossExplosion, bossPosition.position, bossPosition.rotation);
 
+        StartCoroutine(BossExplosionCo());
+
         bossAnimator.enabled = false;
 
         GameManager.instance.AddScore(bossScoreValue);
@@ -129,6 +133,39 @@ public class BossManager : MonoBehaviour
         yield return new WaitForSeconds(waitToEndLevel);
 
         StartCoroutine(GameManager.instance.EndLevelCo());
+    }
+
+    public IEnumerator BossExplosionCo() 
+    {
+        MusicController.instance.enemyExplosionAudio.Play();
+
+        yield return new WaitForSeconds(0.25f);
+
+        MusicController.instance.enemyExplosionAudio.Play();
+
+        yield return new WaitForSeconds(0.25f);
+
+        MusicController.instance.enemyExplosionAudio.Play();
+
+        yield return new WaitForSeconds(0.25f);
+
+        MusicController.instance.enemyExplosionAudio.Play();
+
+        yield return new WaitForSeconds(0.25f);
+
+        MusicController.instance.enemyExplosionAudio.Play();
+
+        yield return new WaitForSeconds(0.25f);
+
+        MusicController.instance.enemyExplosionAudio.Play();
+
+        yield return new WaitForSeconds(0.25f);
+
+        MusicController.instance.enemyExplosionAudio.Play();
+
+        yield return new WaitForSeconds(0.25f);
+
+        MusicController.instance.enemyExplosionAudio.Play();        
     }
 
 }
